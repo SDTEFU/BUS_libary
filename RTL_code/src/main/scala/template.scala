@@ -1,23 +1,28 @@
 import spinal.core._
-import spinal.lib.IMasterSlave
+import spinal.lib._
+//define_bus=======================================================================================
 
-
-class SSM_BUS extends Bundle with IMasterSlave{
-  val addr = Bits(32 bits)
-  val write = Bits(32 bits)
-  val read = Bits(32 bits)
+case class SSM_BUS(wigth: Int) extends Bundle with IMasterSlave {
+  val addr = Bits(wigth bits)
+  val write = Bits(wigth bits)
+  val read = Bits(wigth bits)
   val acces = Bool()
-  val rw =Bool()
-  val done =Bool()
+  val rw = Bool()
+  val done = Bool()
 
   override def asMaster(): Unit = {
-    out(addr,write,acces,rw)
-    in(read,done)
+    out(addr, write, acces, rw)
+    in(read, done)
   }
 }
+//define_bus====================================================================================
 
-class SSM_BUS_test extends Module{
-
+class SSM_BUS_test extends Module {
+  val io = new Bundle {
+    val inin = master(SSM_BUS(32))
+    val outout = slave(SSM_BUS(32))
+  }
+  io.outout <> io.inin
 }
 
 object template extends App {
