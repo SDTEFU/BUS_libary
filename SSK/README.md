@@ -1,12 +1,12 @@
 # Synchronous-Scalable-Keep(通用同步可拓展串型总线)
-> #### 扩展版本: [SSK-plus](./SSK-plus)
+> #### 此为标准版本只支持一个主机，扩展版本支持多主机: [SSK-plus](./SSK-plus)
 
-### Sign
+### Sign(master)
 
 | 方向  | 名称  |  意义    
 |:----:|:----: |:----|
-| out  | mosi  | 主设备发送从设备接收
-| in   | miso  | 主设备接收从设备发送
+| inout| mosi  | 主设备发送从设备接收
+| inout| miso  | 主设备接收从设备发送
 | out  | clk   | 同步时钟由主设备发送
 | out  | lock  | 保持信号，保持和某一个设备通讯，保持后可同时收发数据
 
