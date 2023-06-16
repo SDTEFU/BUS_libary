@@ -1,5 +1,5 @@
 # Synchronous-Scalable-Keep(通用同步可拓展串型总线)
-
+> #### 扩展版本: [SSK-plus](./SSK-plus)
 
 ### Sign
 
